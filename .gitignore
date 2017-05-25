@@ -2,3 +2,9 @@
 *.cache
 /.idea
 /ravenpackapi/dev
+
+# pypi publishing
+*.egg-info/
+/publish.sh
+/dist
+/build
