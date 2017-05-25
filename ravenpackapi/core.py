@@ -83,7 +83,7 @@ class RPApi(object):
                                 entities=None,
                                 filters=None,
                                 return_type='dump',
-                                format='csv',
+                                dump_format='csv',
                                 ):
         """ Return a token as a promise that will grant you download the data """
         endpoint = self.base_url + "analytics"
@@ -96,7 +96,7 @@ class RPApi(object):
             events=None,
         )
         if return_type == 'dump':
-            data['format'] = format
+            data['format'] = dump_format
         response = self.api_get(data, endpoint)
         return response.json()
 
@@ -117,7 +117,7 @@ class RPApi(object):
         response = self._get_analytics_response(**kwargs)
         assert kwargs.pop('return_type', 'dump') == 'dump', 'Only dump can be saved as file'
         token = response['token']
-        self.save_to_file(token)
+        self.save_to_file(token, filename)
 
     @staticmethod
     def validate(value, field_type):
@@ -140,8 +140,8 @@ class RPApi(object):
             yield line
 
     def save_to_file(self, token, file_or_filename):
-        if isinstance(file_or_filename, basestring):
-            file_handler = file(file_or_filename, 'wb')
+        if isinstance(file_or_filename, str):
+            file_handler = open(file_or_filename, 'wb')
         else:
             file_handler = file_or_filename
 
