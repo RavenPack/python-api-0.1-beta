@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ravenpackapi',
-    version='0.1',
+    version='0.3.0',
     packages=['ravenpackapi'],
     url='https://github.com/RavenPack/python-api',
     license='MIT',
@@ -15,7 +15,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Alpha',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',

@@ -6,7 +6,7 @@ def test_analytics_news_type():
     api = RPApi()
     entities = ['D8442A', '619882', '14BA06']
     news_types = ['RNS-SEC10K', 'RNS-SEC10Q']
-    analytics = api.get_analytics_inline(
+    analytics = api.get_analytics(
         start_date='2016-01-01',
         end_date='2017-05-01',
         entities=entities,
@@ -25,7 +25,7 @@ def test_analytics_file_download():
     # TODO: This is generating a mail notification, would be nice to be able to disable it
     entities = [APPLE_RP_ENTITY_ID]
     api = RPApi()
-    analytics = api.get_analytics_inline(
+    analytics = api.get_analytics(
         start_date='2017-05-01',
         end_date='2017-05-02',
         entities=entities,

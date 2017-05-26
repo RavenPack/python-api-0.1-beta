@@ -6,7 +6,7 @@ def test_inline_entity_mapping():
                 {'ticker': 'JPM'},
                 {'listing': 'XNYS:DVN'}]
     api = RPApi()
-    mapping = api.get_entity_mapping_inline(entities)
+    mapping = api.get_entity_mapping(entities)
     assert not mapping.get('errors')
     assert mapping['IDENTIFIERS_MATCHED_COUNT'] == mapping['IDENTIFIERS_SUBMITTED_COUNT'] == 3
 

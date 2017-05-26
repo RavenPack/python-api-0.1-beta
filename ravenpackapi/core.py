@@ -38,9 +38,9 @@ class RPApi(object):
         )
         return response
 
-    def get_entity_reference_inline(self, entities):
-        # request some entity reference and return the results
+    def get_entity_reference(self, entities):
         """
+        Request some entity reference and return the results
 
         :type entities: list
         """
@@ -52,7 +52,7 @@ class RPApi(object):
         response = self.api_get(data, endpoint)
         return response.json()
 
-    def get_entity_mapping_inline(self, entities):
+    def get_entity_mapping(self, entities):
         # request some entity reference and return the results
         """
 
@@ -100,9 +100,9 @@ class RPApi(object):
         response = self.api_get(data, endpoint)
         return response.json()
 
-    def get_analytics_inline(self,
-                             **kwargs
-                             ):
+    def get_analytics(self,
+                      **kwargs
+                      ):
         response = self._get_analytics_response(**kwargs)
         return_type = kwargs.pop('return_type', 'dump')
         if return_type == 'preview':
