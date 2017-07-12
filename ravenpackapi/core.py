@@ -8,7 +8,7 @@ from time import sleep
 import requests
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("ravenpack.core")
 
 
 class RPApi(object):
@@ -28,6 +28,7 @@ class RPApi(object):
 
     def api_get(self, data, endpoint):
         """ The common way to do a request to the API passing headers"""
+        logger.debug("Request to %s" % endpoint)
         response = requests.post(
             url=endpoint,
             headers=dict(API_KEY=self.api_key),
