@@ -21,8 +21,26 @@ def test_analytics_news_type():
     assert len(analytics) == 11, 'We expect 11 analytics row passing'
 
 
+def test_analytics_event_relevance():
+    """ We'd like to get all the analytics with event_relevance >= 90 """
+    api = RPApi()
+    entities = ['D8442A', ]
+    analytics = api.get_analytics(
+        start_date='2016-01-01',
+        end_date='2017-05-01',
+        entities=entities,
+        filters=dict(
+            event_relevance={'$gte': 90}
+        ),
+        return_type='preview',
+    )
+    for a in analytics:
+        assert a['RP_ENTITY_ID'] in entities, 'Analytics should be of the requested entities only'
+        assert a['EVENT_RELEVANCE'] >= 90, 'Analytics should have event_relevance >= 90'
+    assert len(analytics), 'We expect some analytics row passing'
+
+
 def test_analytics_file_download():
-    # TODO: This is generating a mail notification, would be nice to be able to disable it
     entities = [APPLE_RP_ENTITY_ID]
     api = RPApi()
     analytics = api.get_analytics(

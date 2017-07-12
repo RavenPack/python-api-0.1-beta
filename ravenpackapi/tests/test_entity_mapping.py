@@ -2,7 +2,7 @@ from ravenpackapi.core import RPApi
 
 
 def test_inline_entity_mapping():
-    entities = [{'ticker': 'AAPL'},
+    entities = [{'ticker': 'AAPL', 'name': 'Apple Inc.'},
                 {'ticker': 'JPM'},
                 {'listing': 'XNYS:DVN'}]
     api = RPApi()

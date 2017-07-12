@@ -76,7 +76,7 @@ class RPApi(object):
 
         if not response['url']:
             return False  # when the file is not available we return False
-        response['size'] = int(response['size'])  # FIXME: API returns size as string
+        response['size'] = int(response['size'])
         return response
 
     def _get_analytics_response(self,
@@ -86,7 +86,7 @@ class RPApi(object):
                                 return_type='dump',
                                 dump_format='csv',
                                 ):
-        """ Return a token as a promise that will grant you download the data """
+        """ Request the analytics and return the json result """
         endpoint = self.base_url + "analytics"
         data = dict(
             start_date=self.validate(start_date, 'date'),

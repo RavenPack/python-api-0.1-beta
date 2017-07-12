@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ravenpackapi',
-    version='0.3.1',
+    version='0.3.2',
     packages=['ravenpackapi'],
     url='https://github.com/RavenPack/python-api',
     license='MIT',
