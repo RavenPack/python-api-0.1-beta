@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ravenpackapi',
-    version='0.3.0',
+    version='0.3.1',
     packages=['ravenpackapi'],
     url='https://github.com/RavenPack/python-api',
     license='MIT',
@@ -34,5 +34,5 @@ setup(
     ],
 
     keywords='python analytics api rest news data',
-    install_requires=['requests'],
+    install_requires=['requests[security]'],
 )
