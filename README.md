@@ -49,7 +49,7 @@ Here is an example of the entity mapping endpoint to get the RavenPack
 entity ids given some known company
 
 ```python
-entities = [{'ticker': 'AAPL'},
+entities = [{'ticker': 'AAPL', 'name': 'Apple Inc.'},
             {'ticker': 'JPM'},
             {'listing': 'XNYS:DVN'}]
 
@@ -72,12 +72,12 @@ query = dict(
     start_date='2016-01-01', end_date='2017-01-01',
     return_type='dump',
 )
-# get the analytics with news_type = 'RNS-SEC10K' or 'RNS-SEC10Q'
+# get the analytics with event_relevance >= 90
 query.update(dict(
     entities=rp_entities_id,
     filters=dict(
-        NEWS_TYPE={'$in': ['RNS-SEC10K', 'RNS-SEC10Q']}
-    ),
+		event_relevance={'$gte': 90}
+	),
 ))
 
 # then we can enumerate all the analytics
