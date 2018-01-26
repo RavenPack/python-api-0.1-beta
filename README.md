@@ -1,14 +1,21 @@
-RavenPack API - Python client
+RavenPack API 1.0 beta- Python client
 =====
 
 A Python library to consume the [RavenPack API](https://www.ravenpack.com).
+
+## This API has been deprecated
+
+Please consider migrating your script [to the new API 1.0](https://github.com/RavenPack/python-api).
+
+---
+
 
 [Access the documention here.](https://www.ravenpack.com/support/)
 
 ## Installation
 
-	pip install ravenpackapi
-	
+    pip install ravenpackapi
+    
 ## Basic usage
 
 The Python client helps managing the API calls to the RavenPack dataset server
@@ -18,13 +25,13 @@ To use the API you need to have a RavenPack API KEY.
 
 Start defining an instance of the RPApi giving your key (or you can set it in your
 environment like `export RP_API_KEY=your_api_key`).
-	
+    
 ```python
 from ravenpackapi.core import RPApi
 
 api = RPApi(api_key='your_api_key')
 ```
-	
+    
 Then, for example to get a file with all the events for the entity 69ADD9 given a data range
 you can use:
 
@@ -76,8 +83,8 @@ query = dict(
 query.update(dict(
     entities=rp_entities_id,
     filters=dict(
-		event_relevance={'$gte': 90}
-	),
+        event_relevance={'$gte': 90}
+    ),
 ))
 
 # then we can enumerate all the analytics

@@ -3,6 +3,7 @@
 import datetime
 import json
 import os
+import warnings
 from time import sleep
 
 import requests
@@ -15,6 +16,7 @@ class RPApi(object):
     FILE_AVAILABILIY_SECONDS_DELAY = 1.0
     CHUNK_SIZE = 1024 * 32
     base_url = 'https://api.ravenpack.com/api/'
+    warnings.warn("The 0.1beta version has been deprecated", DeprecationWarning)
 
     def __init__(self,
                  api_key=os.environ.get('RP_API_KEY')):
@@ -89,8 +91,8 @@ class RPApi(object):
         """ Request the analytics and return the json result """
         endpoint = self.base_url + "analytics"
         data = dict(
-            start_date=self.validate(start_date, 'date'),
-            end_date=self.validate(end_date, 'date'),
+            start_date=self.ensure_field_type(start_date, 'date'),
+            end_date=self.ensure_field_type(end_date, 'date'),
             entities=entities,
             filters=filters,
             return_type=return_type,
@@ -121,7 +123,7 @@ class RPApi(object):
         self.save_to_file(token, filename)
 
     @staticmethod
-    def validate(value, field_type):
+    def ensure_field_type(value, field_type):
         if field_type == 'date':
             if isinstance(value, datetime.date):
                 value = value.strftime('%Y-%m-%d')
