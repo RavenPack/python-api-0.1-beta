@@ -1,4 +1,4 @@
-RavenPack API 1.0 beta- Python client
+RavenPack API 1.0 beta - Python client
 =====
 
 A Python library to consume the [RavenPack API](https://www.ravenpack.com).
@@ -8,14 +8,7 @@ A Python library to consume the [RavenPack API](https://www.ravenpack.com).
 Please consider migrating your script [to the new API 1.0](https://github.com/RavenPack/python-api).
 
 ---
-
-
-[Access the documention here.](https://www.ravenpack.com/support/)
-
-## Installation
-
-    pip install ravenpackapi
-    
+   
 ## Basic usage
 
 The Python client helps managing the API calls to the RavenPack dataset server
@@ -96,3 +89,5 @@ for row in api.get_analytics(**query):
 
 api.get_analytics_file('test.csv', **query)
 ```
+
+[Access the API documention here.](https://www.ravenpack.com/support/)
